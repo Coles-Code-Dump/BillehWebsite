@@ -6,9 +6,7 @@ var ctx = canvas.getContext("2d");
 //calling functions
 background();
 ground();
-while(player.x < 300) {
 player.update();
-}
 player.show();
 
 //drawing functions
@@ -26,7 +24,7 @@ function ground() {
 function Player() {
     this.x = 0;
     this.y = 500;
-    this.xspeed = 0.1;
+    this.xspeed = 0;
     this.yspeed = 0;
     this.scl = 50;
     this.scll1 = 10;
@@ -36,13 +34,14 @@ function Player() {
     this.update = function() {
         this.x = this.x + this.xspeed;
         this.y = this.y + this.yspeed;
-        
     }
 
     this.show = function() {
-        ctx.fillStyle = "purple";
+        ctx.fillStyle = "red";
         ctx.fillRect(this.x, this.y, this.scl, this.scl);
+        ctx.fillRect(this.x + 12.5, this.y - 25, this.sclh, this.sclh);
         ctx.fillRect(this.x, this.y + 50, this.scll1, this.scll2);
         ctx.fillRect(this.x + 40, this.y + 50, this.scll1, this.scll2);
+        ctx.fillRect(this.x + 50, this.y, this.scll2 - 10, this.scll1);
     }
 }
